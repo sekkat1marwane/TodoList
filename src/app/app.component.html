@@ -9,8 +9,8 @@
           <a class="list-group-item" (click)="displayTache(tache)">
             {{tache.titre}}
           </a>
-          <button style="margin-left: 10px; margin-top:10px;" (click)=changeEtatTache(tache)>Tache réalisé ?</button>
-          <button style="margin-left: 10px; margin-top:10px;"(click)=suppTache(tache)>Supprimer la tache</button>
+          <button class="btn btn-success" style="margin-left: 10px; margin-top:10px;" (click)=changeEtatTache(tache)>Tache réalisé ?</button>
+          <button class="btn btn-danger"  style="margin-left: 10px; margin-top:10px;"(click)=suppTache(tache)>Supprimer la tache</button>
           <br/>
           <br/>
         </div>
@@ -20,8 +20,8 @@
           <s><a class="list-group-item" (click)="displayTache(tache)">
             {{tache.titre}}
           </a></s>
-          <button style="margin-left: 10px; margin-top:10px;"(click)=changeEtatTache(tache)>Refaire la tache ?</button>
-          <button style="margin-left: 10px; margin-top:10px;" (click)=suppTache(tache)>Supprimer la tache</button>
+          <button class="btn btn-warning" style="margin-left: 10px; margin-top:10px;"(click)=changeEtatTache(tache)>Refaire la tache ?</button>
+          <button class="btn btn-danger" style="margin-left: 10px; margin-top:10px;" (click)=suppTache(tache)>Supprimer la tache</button>
           <br/>
           <br/>
         </div>

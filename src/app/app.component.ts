@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Todos';
   tache : any = {
     titre:"",
     descrption:"",
@@ -60,11 +59,16 @@ export class AppComponent {
     {
   
       let max =0;
-      this.todoList.forEach(tache=>
+      this.todoList.forEach(data=>
         {
-          if(tache.id>max){
-            max = tache.id;
+          if(data.id>tache.id)
+          {
+            data.id--;
+            if(data.id>max){
+              max = data.id;
+            }
           }
+
         });
         
         tache.id=max+1;
@@ -115,6 +119,21 @@ export class AppComponent {
     /*supprimer une tache*/
     suppTache(tache : any)
     {
-      delete this.todoList[tache.id-1];
+
+     this.todoList.splice(tache.id-1,1);
+
+      this.todoList.forEach(data => 
+        {
+          if(data.id>tache.id)
+          {
+            data.id--;
+          }
+        })
+      console.log(this.todoList);
+    }
+
+    displayConsole()
+    {
+      console.log(this.todoList);
     }
   }
