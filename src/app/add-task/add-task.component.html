@@ -1,0 +1,17 @@
+
+
+
+
+<form style="margin-left: 120px; margin-bottom: 50px;" #formValue="ngForm" (ngSubmit)="EnvoiTacheEvent.emit(envoiForm(formValue.value))"> 
+
+    <input style="margin-right: 10px;" type ="text"  required #name="ngModel" name="titre" placeholder="Entrer le titre de la tache" ngModel />
+    <span style="margin-right: 10px;" *ngIf="name.invalid" style="color:'red'">Veuillez renseigner le titre de la tache svp</span>
+    <br/>
+    <br/>
+    <input type ="text" name="description" placeholder="Entrer la description de la tache" ngModel/>
+    <br/>
+    <br/>
+
+    <button [disabled] ="formValue.invalid" >Ajouter </button>
+
+</form>

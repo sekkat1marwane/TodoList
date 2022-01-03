@@ -1,0 +1,44 @@
+<h1 style="text-align: center;"> Test Altran 30/01/2022, réalisé par Marwane SEKKAT</h1>
+<br/><br/>  
+<h2> Vos Taches</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <ul class="list-group" *ngFor="let tache of todoList">
+        <div *ngIf="tache !== undefined && tache.fait === false; else tacheRealisee">
+          <a class="list-group-item" (click)="displayTache(tache)">
+            {{tache.titre}}
+          </a>
+          <button style="margin-left: 10px; margin-top:10px;" (click)=changeEtatTache(tache)>Tache réalisé ?</button>
+          <button style="margin-left: 10px; margin-top:10px;"(click)=suppTache(tache)>Supprimer la tache</button>
+          <br/>
+          <br/>
+        </div>
+
+        <ng-template #tacheRealisee>
+          <div *ngIf="tache">
+          <s><a class="list-group-item" (click)="displayTache(tache)">
+            {{tache.titre}}
+          </a></s>
+          <button style="margin-left: 10px; margin-top:10px;"(click)=changeEtatTache(tache)>Refaire la tache ?</button>
+          <button style="margin-left: 10px; margin-top:10px;" (click)=suppTache(tache)>Supprimer la tache</button>
+          <br/>
+          <br/>
+        </div>
+         
+        </ng-template>
+
+
+      </ul>
+
+    </div>
+    <div class=col-6>
+      <h3>{{tache.titre}}</h3>
+      <p>{{tache.description}}</p>      
+    </div>
+  </div>
+</div>
+<br/>
+<h2>Ajouter une tache</h2>
+<app-add-task (EnvoiTacheEvent)="envoiTache($event)"></app-add-task>
+
